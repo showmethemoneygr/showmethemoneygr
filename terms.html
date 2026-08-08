@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
@@ -35,7 +35,7 @@ ul{padding-left:1.2rem}
 footer{border-top:1px solid var(--hair);margin-top:4rem;padding-top:1.5rem;font-size:.8rem;color:var(--dimmer)}
 </style>
 </head>
-<body class="en">
+<body class="el">
 <div class="wrap">
   <div class="top">
     <a class="back" href="./index.html">← ShowMeTheMoney.gr</a>
@@ -133,7 +133,7 @@ footer{border-top:1px solid var(--hair);margin-top:4rem;padding-top:1.5rem;font-
 <script>
 (function(){
  var s=null;try{s=localStorage.getItem('smtm-lang')}catch(e){}
- document.body.className=s==='el'?'el':'en';
+ document.body.className=s==='en'?'en':'el';
  document.querySelectorAll('[data-setlang]').forEach(function(b){b.addEventListener('click',function(){
   var l=b.dataset.setlang;document.body.className=l;document.documentElement.lang=l;
   try{localStorage.setItem('smtm-lang',l)}catch(e){}})});
