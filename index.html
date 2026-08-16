@@ -141,7 +141,7 @@ window.SMTM_IMGS = { logo:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAC
   --hair:rgba(255,255,255,.09); --hair-gold:rgba(201,162,75,.26);
   --gold:#C9A24B; --gold-lt:#E9D096; --aegean:#3D8FB0;
   --bone:#F2EEE6; --dim:#A7B4C6; --dimmer:#75839A;
-  --green:#6FBE92; --red:#C4544A; --money:#3FD98B; --money-lt:#9CF3C6;
+  --green:#6FBE92; --red:#C4544A;
   --shell:min(1200px,90vw); --r:8px;
   --disp:"Archivo","Helvetica Neue",sans-serif;
   --body:"Inter",system-ui,sans-serif;
@@ -247,20 +247,18 @@ p+p{margin-top:1.05rem}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
 @media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:3rem}}
 .hero h1{margin-bottom:1.7rem}
-.hero h1 em{font-style:normal;color:var(--gold);display:block}
-/* ticker FX on the money figure */
-.fig{position:relative;display:inline-block;color:var(--money);
-  text-shadow:0 0 34px rgba(63,217,139,.4),0 0 90px rgba(63,217,139,.18)}
-.fig::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.75) 50%,transparent 62%);
+.hero h1{color:var(--bone)}
+.hero h1 .ln{display:block}
+/* the money figure: gold, glow, slow sheen sweep */
+.fig{display:inline-block;position:relative;color:var(--gold);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 30px rgba(201,162,75,.4),0 0 80px rgba(201,162,75,.15)}
+.fig::after{content:attr(data-txt);position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;
+  background:linear-gradient(104deg,transparent 40%,rgba(255,255,255,.85) 50%,transparent 60%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  background-size:260% 100%;background-position:200% 0;
-  animation:sheen 5.5s var(--ease) 1.1s infinite}
-.fig .up{font-size:.42em;vertical-align:.72em;margin-left:.14em;color:var(--money);
-  animation:tick 2.6s ease-in-out infinite;display:inline-block}
-@keyframes sheen{0%{background-position:200% 0}55%,100%{background-position:-120% 0}}
-@keyframes tick{0%,100%{transform:translateY(0);opacity:.85}50%{transform:translateY(-.14em);opacity:1}}
-@media(prefers-reduced-motion:reduce){.fig::after,.fig .up{animation:none}}
+  background-size:280% 100%;background-position:210% 0;
+  animation:sheen 6s var(--ease) 1.3s infinite}
+@keyframes sheen{0%{background-position:210% 0}52%,100%{background-position:-130% 0}}
+@media(prefers-reduced-motion:reduce){.fig::after{animation:none}}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem}
 
 .frame{position:relative;max-width:520px;margin-inline:auto;width:100%}
@@ -572,10 +570,20 @@ body.reviews-on .reviews{display:block}
 .final{position:relative;overflow:hidden;text-align:center}
 .final::before{content:"";position:absolute;left:50%;top:-10%;width:1000px;height:600px;transform:translateX(-50%);
   background:radial-gradient(ellipse at center,rgba(201,162,75,.14),transparent 65%);pointer-events:none}
-.capture{margin:3.5rem auto 0;max-width:540px;border:1px solid var(--hair);border-radius:var(--r);
-  padding:2rem;background:var(--surface);text-align:left}
-.capture p{font-size:.92rem;color:var(--dimmer);margin:.6rem 0 1.3rem}
-.capture form{display:flex;gap:.6rem}
+.capture{margin:clamp(4rem,7vw,6rem) auto 0;max-width:760px;border:1px solid var(--hair);border-radius:var(--r);
+  padding:clamp(2rem,4vw,3.2rem);background:var(--surface);text-align:left}
+.capture .eyebrow{margin-bottom:1.1rem}
+.capture h3{margin-bottom:1.4rem;max-width:22ch}
+.cap-body{font-size:1rem;color:var(--dim);line-height:1.72;max-width:60ch}
+.cap-body p+p{margin-top:1rem}
+.cap-body strong{color:var(--bone);font-weight:600}
+.cap-list{list-style:none;margin:1.6rem 0;display:grid;gap:.55rem;
+  border-left:2px solid var(--hair-gold);padding-left:1.3rem}
+.cap-list li{font-size:.95rem;color:var(--dim);line-height:1.55}
+.cap-list li b{color:var(--bone);font-weight:600}
+.cap-get{font-family:var(--disp);font-weight:800;font-stretch:92%;text-transform:uppercase;
+  font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.3;color:var(--bone);margin:2rem 0 1.3rem}
+.capture form{display:flex;gap:.6rem;max-width:520px}
 @media(max-width:540px){.capture form{flex-direction:column}}
 .capture input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid var(--hair);color:var(--bone);
   padding:.95rem 1rem;font:inherit;font-size:16px;border-radius:var(--r);transition:border-color .25s}
@@ -673,7 +681,7 @@ body.reviews-on .reviews{display:block}
       <span class="brand-txt">Show Me The Money<span>ATHEX · GR</span></span>
     </a>
     <nav class="navlinks">
-      <a href="#truth-en">The Truth</a>
+      <a href="#truth-en">The problem</a>
       <a href="#anestis-en">Your Mentor</a>
       <a href="#curriculum-en">What You'll Learn</a>
       <a href="#pricing-en">Join</a>
@@ -688,7 +696,7 @@ body.reviews-on .reviews{display:block}
   <div class="hero-bg"><span class="glow"></span><span class="grid"></span></div>
   <div class="shell hero-grid">
     <div>
-      <h1 class="h1">The road towards<em><span class="fig">€<span class="cnt" data-to="10000">10,000</span><span class="up">▲</span></span> a month.</em></h1>
+      <h1 class="h1"><span class="ln">The road towards</span><span class="ln"><span class="fig" data-txt="€10,000">€<span class="cnt" data-to="10000">10,000</span></span></span><span class="ln">a month.</span></h1>
       <p class="lede">Your money sits in the bank losing value. A market on your doorstep pays the people who learned the rules. <strong>Twenty years on the Greek market. Everything I know is inside.</strong></p>
       <div class="hero-cta">
         <a class="btn btn--gold btn--lg" href="#pricing-en">Start free →</a>
@@ -788,7 +796,7 @@ body.reviews-on .reviews{display:block}
       <div class="quiz-meter" aria-hidden="true"><span class="q-fill"></span></div>
       <p class="quiz-msg">Tap everything that sounds like you.</p>
       <div class="quiz-verdict">
-        <p class="h3" style="margin-bottom:.4rem">That's a match.</p>
+        <p class="h3" style="margin-bottom:.4rem">You are in the right place.</p>
         <p style="font-size:.95rem;color:var(--dim);margin-bottom:1.2rem">Built for exactly where you are right now. The first lessons cost you nothing.</p>
         <a class="btn btn--gold" href="#pricing-en">Start free →</a>
       </div>
@@ -1018,7 +1026,7 @@ body.reviews-on .reviews{display:block}
       <div class="plan">
         <div class="plan-name">Free</div>
         <div class="price-line"><div class="plan-price">€0</div></div>
-        <p class="plan-desc" style="margin-top:1rem">Taste the method before you spend a cent.</p>
+        <p class="plan-desc" style="margin-top:1rem">See the method before you spend a euro.</p>
         <ul>
           <li><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9.5 6.5 14 16 4" stroke="currentColor" stroke-width="2.4"/></svg>Free Lessons channel</li>
           <li><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9.5 6.5 14 16 4" stroke="currentColor" stroke-width="2.4"/></svg>Real teaching, straight from the course</li>
@@ -1115,13 +1123,26 @@ body.reviews-on .reviews{display:block}
       <p class="note" style="text-align:center">No card required to start</p>
     </div>
     <div class="capture rv">
-      <h3 class="h3">Not ready to decide?</h3>
-      <p>Take the seven checks I run before putting a euro into any Greek stock. One page. Free.</p>
+      <span class="eyebrow">The seven checks</span>
+      <h3 class="h3">Most people buy their first stock on someone else's opinion.</h3>
+      <div class="cap-body">
+        <p>A name comes up at work. A friend swears by it. A headline says the sector is moving. The stock looks cheap next to where it was two years ago, so the order goes in.</p>
+        <p>Then the questions start, and every one of them arrives too late. How much of your account is now sitting in that one company. What has to happen for you to sell. Whether the dividend that attracted you is actually covered by earnings. What the fees quietly took. And when it drops eleven percent, you find out you never decided in advance whether that was noise or the reason to leave.</p>
+        <p>The loss is rarely the expensive part. <strong>The expensive part is doing the same thing again next year, because nothing about the process changed.</strong></p>
+        <ul class="cap-list">
+          <li><b>Seven questions</b>, in the order I ask them</li>
+          <li><b>The numbers to look up</b> for each one, and where they live</li>
+          <li><b>The answer that stops the trade</b> before the money moves</li>
+        </ul>
+        <p>It is the same page I use. If one check fails, I do not buy, no matter how good the story sounds. It has cost me a few good trades and saved me from considerably more bad ones.</p>
+      </div>
+      <p class="cap-get">One page, free.</p>
       <form onsubmit="return false;">
         <input type="email" placeholder="your@email.com" aria-label="Email address" required>
-        <button class="btn btn--gold" type="submit">Send it to me</button>
+        <button class="btn btn--gold" type="submit">Send the checklist</button>
       </form>
       <p class="form-msg" role="status"></p>
+      <p class="note">One email with the page attached. Unsubscribe in one click, any time.</p>
     </div>
   </div>
 </section>
@@ -1210,7 +1231,7 @@ body.reviews-on .reviews{display:block}
       <span class="brand-txt">Show Me The Money<span>ΧΑ · GR</span></span>
     </a>
     <nav class="navlinks">
-      <a href="#truth-el">Η Αλήθεια</a>
+      <a href="#truth-el">Το πρόβλημα</a>
       <a href="#anestis-el">Ο Μέντοράς σου</a>
       <a href="#curriculum-el">Τι θα μάθεις</a>
       <a href="#pricing-el">Εγγραφή</a>
@@ -1225,7 +1246,7 @@ body.reviews-on .reviews{display:block}
   <div class="hero-bg"><span class="glow"></span><span class="grid"></span></div>
   <div class="shell hero-grid">
     <div>
-      <h1 class="h1">Ο δρόμος προς τα<em><span class="fig">€<span class="cnt" data-to="10000">10.000</span><span class="up">▲</span></span> τον μήνα.</em></h1>
+      <h1 class="h1"><span class="ln">Ο δρόμος προς τα</span><span class="ln"><span class="fig" data-txt="€10.000">€<span class="cnt" data-to="10000">10.000</span></span></span><span class="ln">τον μήνα.</span></h1>
       <p class="lede">Τα λεφτά σου χάνουν αξία στην τράπεζα. Μια αγορά δίπλα σου πληρώνει όσους έμαθαν τους κανόνες. <strong>Είκοσι χρόνια στο ελληνικό χρηματιστήριο. Ό,τι ξέρω, είναι εδώ μέσα.</strong></p>
       <div class="hero-cta">
         <a class="btn btn--gold btn--lg" href="#pricing-el">Ξεκίνα δωρεάν →</a>
@@ -1325,7 +1346,7 @@ body.reviews-on .reviews{display:block}
       <div class="quiz-meter" aria-hidden="true"><span class="q-fill"></span></div>
       <p class="quiz-msg">Πάτα ό,τι σε εκφράζει.</p>
       <div class="quiz-verdict">
-        <p class="h3" style="margin-bottom:.4rem">Ταιριάζουμε.</p>
+        <p class="h3" style="margin-bottom:.4rem">Είσαι στο σωστό μέρος.</p>
         <p style="font-size:.95rem;color:var(--dim);margin-bottom:1.2rem">Φτιαγμένο ακριβώς για το σημείο που βρίσκεσαι. Τα πρώτα μαθήματα δεν σου κοστίζουν τίποτα.</p>
         <a class="btn btn--gold" href="#pricing-el">Ξεκίνα δωρεάν →</a>
       </div>
@@ -1555,7 +1576,7 @@ body.reviews-on .reviews{display:block}
       <div class="plan">
         <div class="plan-name">Free</div>
         <div class="price-line"><div class="plan-price">€0</div></div>
-        <p class="plan-desc" style="margin-top:1rem">Δοκίμασε τη μέθοδο πριν δώσεις σεντ.</p>
+        <p class="plan-desc" style="margin-top:1rem">Δες τη μέθοδο πριν δώσεις ένα ευρώ.</p>
         <ul>
           <li><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9.5 6.5 14 16 4" stroke="currentColor" stroke-width="2.4"/></svg>Κανάλι με δωρεάν μαθήματα</li>
           <li><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M2 9.5 6.5 14 16 4" stroke="currentColor" stroke-width="2.4"/></svg>Κανονική διδασκαλία, μέσα από το μάθημα</li>
@@ -1652,13 +1673,26 @@ body.reviews-on .reviews{display:block}
       <p class="note" style="text-align:center">Δεν χρειάζεται κάρτα για να ξεκινήσεις</p>
     </div>
     <div class="capture rv">
-      <h3 class="h3">Δεν είσαι έτοιμος να αποφασίσεις;</h3>
-      <p>Πάρε τους εφτά ελέγχους που κάνω πριν βάλω ένα ευρώ σε ελληνική μετοχή. Μία σελίδα. Δωρεάν.</p>
+      <span class="eyebrow">Οι εφτά έλεγχοι</span>
+      <h3 class="h3">Οι περισσότεροι αγοράζουν την πρώτη τους μετοχή με ξένη γνώμη.</h3>
+      <div class="cap-body">
+        <p>Ακούγεται ένα όνομα στη δουλειά. Ένας φίλος ορκίζεται γι' αυτό. Ένα πρωτοσέλιδο λέει ότι ο κλάδος κινείται. Η μετοχή φαίνεται φθηνή μπροστά στο πού ήταν πριν δύο χρόνια, και η εντολή περνάει.</p>
+        <p>Μετά αρχίζουν οι ερωτήσεις, και όλες έρχονται αργά. Πόσο από τον λογαριασμό σου κάθεται τώρα σε μία εταιρεία. Τι πρέπει να συμβεί για να πουλήσεις. Αν το μέρισμα που σε τράβηξε καλύπτεται όντως από κέρδη. Τι σου πήραν αθόρυβα οι προμήθειες. Και όταν πέσει έντεκα τοις εκατό, ανακαλύπτεις ότι δεν είχες αποφασίσει από πριν αν αυτό είναι θόρυβος ή λόγος να φύγεις.</p>
+        <p>Η ζημιά σπάνια είναι το ακριβό κομμάτι. <strong>Το ακριβό κομμάτι είναι να το ξανακάνεις του χρόνου, επειδή τίποτα στη διαδικασία δεν άλλαξε.</strong></p>
+        <ul class="cap-list">
+          <li><b>Εφτά ερωτήσεις</b>, με τη σειρά που τις κάνω</li>
+          <li><b>Τα νούμερα που κοιτάς</b> σε κάθε μία, και πού βρίσκονται</li>
+          <li><b>Η απάντηση που ακυρώνει την αγορά</b> πριν κουνηθεί το χρήμα</li>
+        </ul>
+        <p>Είναι η ίδια σελίδα που χρησιμοποιώ. Αν ένας έλεγχος πέσει έξω, δεν αγοράζω, όσο καλή κι αν ακούγεται η ιστορία. Μου έχει κοστίσει μερικές καλές κινήσεις και μου έχει γλιτώσει αρκετά περισσότερες κακές.</p>
+      </div>
+      <p class="cap-get">Μία σελίδα, δωρεάν.</p>
       <form onsubmit="return false;">
-        <input type="email" placeholder="to@email.σου" aria-label="Διεύθυνση email" required>
-        <button class="btn btn--gold" type="submit">Στείλ' τη μου</button>
+        <input type="email" placeholder="το email σου" aria-label="Διεύθυνση email" required>
+        <button class="btn btn--gold" type="submit">Στείλε μου τη λίστα</button>
       </form>
       <p class="form-msg" role="status"></p>
+      <p class="note">Ένα email με τη σελίδα. Διαγραφή με ένα κλικ, όποτε θες.</p>
     </div>
   </div>
 </section>
@@ -1749,11 +1783,12 @@ body.reviews-on .reviews{display:block}
     document.querySelectorAll('.cnt').forEach(function(el){
       var to=+el.dataset.to, sep=el.textContent.indexOf('.')>-1?'.':',', t0=null, dur=1500;
       var fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,sep)};
-      el.textContent=fmt(0);
+      var fig=el.closest('.fig');
+      el.textContent=fmt(0);if(fig)fig.dataset.txt='\u20AC'+fmt(0);
       requestAnimationFrame(function step(ts){
         if(!t0)t0=ts;
         var k=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-k,3);
-        el.textContent=fmt(to*e);
+        el.textContent=fmt(to*e);if(fig)fig.dataset.txt='\u20AC'+el.textContent;
         if(k<1)requestAnimationFrame(step);
       });
     });
@@ -1970,7 +2005,7 @@ body.reviews-on .reviews{display:block}
     }
 
 
-    /* ---- 3D market field: raw canvas, real projection, no libraries ---- */
+    /* ---- 3D market field: raw canvas, real projection, lit faces ---- */
     (function(){
       var wrap=scope.querySelector('.m3d');if(!wrap)return;
       var cv=wrap.querySelector('.m3d-cv'),ctx=cv.getContext('2d'),nEl=wrap.querySelector('.m3d-n');
@@ -1981,15 +2016,19 @@ body.reviews-on .reviews{display:block}
         bars.push({x:(ix-(N-1)/2)*GAP,z:(iz-(N-1)/2)*GAP,
           h:.3+Math.pow(rnd(),1.8)*MAXH*(1-d/(N*1.25)),found:false,lit:0});
       }
-      /* the shortlist: the few tall ones the scan would surface */
       bars.slice().sort(function(a,b){return b.h-a.h}).slice(0,6).forEach(function(b){b.found=true});
-      var FOUND=bars.filter(function(b){return b.found}).length;
+      var FOUND=6;
 
-      var rotY=-0.68,rotX=0.72,drag=false,px=0,vel=0.0014,dpr=1,W=0,H=0,started=false,t0=0;
+      var rotY=-0.68,rotX=0.72,drag=false,px=0,vel=0.0013,W=0,H=0,t0=0,running=false;
+      /* light direction in world space, normalised on the xz plane */
+      var LX=-0.72, LZ=0.69;
+
       function size(){
-        dpr=Math.min(devicePixelRatio||1,2);
-        W=cv.clientWidth;H=cv.clientHeight;
-        cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+        var w=cv.clientWidth|0, hh=cv.clientHeight|0;
+        if(!w||!hh)return false;
+        var dpr=Math.min(devicePixelRatio||1,2);
+        if(cv.width!==w*dpr||cv.height!==hh*dpr){cv.width=w*dpr;cv.height=hh*dpr}
+        ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=hh;return true;
       }
       function proj(x,y,z){
         var ca=Math.cos(rotY),sa=Math.sin(rotY);
@@ -1997,84 +2036,94 @@ body.reviews-on .reviews{display:block}
         var cb=Math.cos(rotX),sb=Math.sin(rotX);
         var Y=y*cb-Z*sb, Z2=y*sb+Z*cb;
         var f=18, s=f/(f+Z2+8.2);
-        var half=((N-1)/2*GAP+GAP*.6)*Math.SQRT2;      /* worst-case half-diagonal */
+        var half=((N-1)/2*GAP+GAP*.6)*Math.SQRT2;
         var k=Math.min(W/(half*2*0.60), H/(half*0.88));
-        return {x:W/2+X*s*k, y:H*0.60 - Y*s*k, s:s, d:Z2};
+        return {x:W/2+X*s*k, y:H*0.60-Y*s*k, d:Z2};
       }
-      function face(p,fill){
-        ctx.beginPath();ctx.moveTo(p[0].x,p[0].y);
-        for(var i=1;i<p.length;i++)ctx.lineTo(p[i].x,p[i].y);
+      function poly(pts,fill){
+        ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);
+        for(var i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);
         ctx.closePath();ctx.fillStyle=fill;ctx.fill();
       }
-      function draw(ts){
+      function shade(rgb,m){
+        return 'rgb('+Math.round(rgb[0]*m)+','+Math.round(rgb[1]*m)+','+Math.round(rgb[2]*m)+')';
+      }
+      var GREY=[52,65,88], GOLD=[201,162,75];
+
+      function frame(ts){
         if(!t0)t0=ts;
+        /* skip entirely while this language version is hidden */
+        if(wrap.offsetParent===null){requestAnimationFrame(frame);return}
+        if(!size()){requestAnimationFrame(frame);return}
         var el=(ts-t0)/1000;
         if(!drag)rotY+=vel;
         ctx.clearRect(0,0,W,H);
-        /* ground grid */
-        ctx.lineWidth=1;ctx.strokeStyle='rgba(255,255,255,.05)';
+
         var span=(N-1)/2*GAP+GAP*.7;
-        for(var g=-N/2;g<=N/2;g++){
-          var a=proj(g*GAP,-.02,-span),b=proj(g*GAP,-.02,span);
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
-          var c=proj(-span,-.02,g*GAP),d=proj(span,-.02,g*GAP);
-          ctx.beginPath();ctx.moveTo(c.x,c.y);ctx.lineTo(d.x,d.y);ctx.stroke();
+        ctx.lineWidth=1;ctx.strokeStyle='rgba(255,255,255,.04)';
+        for(var g=-Math.floor(N/2);g<=Math.floor(N/2);g++){
+          var a=proj(g*GAP,0,-span),b2=proj(g*GAP,0,span);
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b2.x,b2.y);ctx.stroke();
+          var c2=proj(-span,0,g*GAP),d2=proj(span,0,g*GAP);
+          ctx.beginPath();ctx.moveTo(c2.x,c2.y);ctx.lineTo(d2.x,d2.y);ctx.stroke();
         }
+
         var w=GAP*0.30, order=bars.slice();
         order.forEach(function(b){b._d=proj(b.x,0,b.z).d});
         order.sort(function(a,b){return b._d-a._d});
-        var litCount=0;
+
+        var shown=0;
         order.forEach(function(b,i){
-          /* stagger the reveal so towers rise in sequence */
-          var appear=Math.min(1,Math.max(0,(el-0.15-i*0.012)*2.2));
-          appear=1-Math.pow(1-appear,3);
-          var hh=b.h*appear; if(hh<=0.01)return;
-          if(b.found){b.lit=Math.min(1,b.lit+(appear>=1?0.02:0));if(b.lit>0)litCount++}
+          var ap=Math.min(1,Math.max(0,(el-0.2-i*0.011)*2.4));
+          ap=1-Math.pow(1-ap,3);
+          var hh=b.h*ap; if(hh<=0.015)return;
+          if(b.found&&ap>0.98)shown++;
+
+          var base=b.found?GOLD:GREY;
           var c=[[-w,-w],[w,-w],[w,w],[-w,w]].map(function(o){return proj(b.x+o[0],0,b.z+o[1])});
           var t=[[-w,-w],[w,-w],[w,w],[-w,w]].map(function(o){return proj(b.x+o[0],hh,b.z+o[1])});
-          var side1,side2,top;
-          if(b.found){
-            var p=0.55+0.45*Math.sin(el*1.8+b.x+b.z);
-            side1='rgba(201,162,75,'+(0.55+0.2*p)+')';
-            side2='rgba(150,118,52,'+(0.5+0.18*p)+')';
-            top='rgba(233,208,150,'+(0.85+0.15*p)+')';
-          } else {
-            side1='#2A3448';side2='#1C2434';top='#3A465E';
-          }
-          /* pick the two visible side faces by screen orientation */
+          /* world normals of the four side faces, in the same order as the edges below */
+          var NRM=[[0,-1],[1,0],[0,1],[-1,0]];
           [[0,1],[1,2],[2,3],[3,0]].forEach(function(f,k){
             var q=[c[f[0]],c[f[1]],t[f[1]],t[f[0]]];
             var ar=0;for(var j=0;j<4;j++){var m=q[j],n2=q[(j+1)%4];ar+=(m.x*n2.y-n2.x*m.y)}
-            if(ar<=0)return; /* facing away */
-            face(q,k%2?side2:side1);
+            if(ar<=0)return;                        /* facing away from camera */
+            var n=NRM[k], lum=0.34+0.66*Math.max(0,n[0]*LX+n[1]*LZ);
+            poly(q,shade(base,0.42+lum*0.58));
           });
-          face(t,top);
-          if(b.found&&b.lit>0){
-            ctx.save();ctx.globalAlpha=0.5*b.lit;
-            ctx.shadowColor='rgba(201,162,75,.9)';ctx.shadowBlur=26;
-            face(t,'rgba(233,208,150,.9)');ctx.restore();
-          }
+          if(b.found){ctx.save();ctx.shadowColor='rgba(201,162,75,.55)';ctx.shadowBlur=22}
+          poly(t,shade(base,b.found?1.3:1.22));     /* top face catches the most light */
+          if(b.found)ctx.restore();
         });
-        if(nEl)nEl.textContent=String(Math.min(FOUND,Math.round(litCount)));
-        requestAnimationFrame(draw);
+
+        if(nEl)nEl.textContent=String(Math.min(FOUND,shown));
+        requestAnimationFrame(frame);
       }
+
       function onDown(e){drag=true;px=(e.touches?e.touches[0].clientX:e.clientX)}
       function onMove(e){
         if(!drag)return;
         var x=(e.touches?e.touches[0].clientX:e.clientX);
         rotY+=(x-px)*0.008;px=x;
-        if(e.cancelable&&e.touches)e.preventDefault();
+        if(e.touches&&e.cancelable)e.preventDefault();
       }
       function onUp(){drag=false}
-      cv.addEventListener('mousedown',onDown);addEventListener('mousemove',onMove);addEventListener('mouseup',onUp);
+      cv.addEventListener('mousedown',onDown);
       cv.addEventListener('touchstart',onDown,{passive:true});
       cv.addEventListener('touchmove',onMove,{passive:false});
-      addEventListener('touchend',onUp);
+      addEventListener('mousemove',onMove);addEventListener('mouseup',onUp);addEventListener('touchend',onUp);
+      if(window.ResizeObserver)new ResizeObserver(function(){size()}).observe(cv);
       addEventListener('resize',size);
-      size();
-      new IntersectionObserver(function(es,ob){es.forEach(function(e){
-        if(e.isIntersecting&&!started){started=true;ob.unobserve(wrap);size();requestAnimationFrame(draw)}
-      })},{threshold:.2}).observe(wrap);
+
+      /* start once, as soon as the element has a real size, whichever language is active */
+      function boot(){
+        if(running)return;
+        if(cv.clientWidth&&cv.clientHeight){running=true;t0=0;size();requestAnimationFrame(frame)}
+      }
+      boot();
+      if(!running){
+        var tries=0,iv=setInterval(function(){boot();if(running||++tries>200)clearInterval(iv)},120);
+      }
     })();
 
     /* elite seat scanner */
