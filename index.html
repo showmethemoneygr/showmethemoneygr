@@ -356,28 +356,6 @@ p+p{margin-top:1.05rem}
   border:1px solid var(--hair-gold);border-radius:var(--r);padding:1.7rem 1.5rem;
   background:linear-gradient(170deg,rgba(201,162,75,.11),transparent 70%)}
 
-/* 3d market field */
-.m3d{position:relative;margin-top:clamp(3rem,5vw,4.5rem);border:1px solid var(--hair);border-radius:var(--r);
-  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);overflow:hidden}
-.m3d-cv{display:block;width:100%;height:clamp(300px,42vw,440px);cursor:grab;touch-action:pan-y}
-.m3d-cv:active{cursor:grabbing}
-.m3d-top{position:absolute;inset:auto auto 0 0;width:100%;display:flex;flex-wrap:wrap;
-  justify-content:space-between;align-items:flex-end;gap:.8rem;padding:1.1rem 1.3rem;pointer-events:none}
-.m3d-hint{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer)}
-.m3d-key{display:flex;gap:1.1rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer)}
-.m3d-key span{display:inline-flex;align-items:center;gap:.4rem}
-.m3d-key b{width:8px;height:8px;border-radius:2px;display:block}
-.m3d-key .k-i{background:#38455C}
-.m3d-key .k-f{background:var(--gold)}
-.m3d-cap{position:absolute;top:1.1rem;left:1.3rem;right:1.3rem;pointer-events:none}
-.m3d-cap b{display:block;font-family:var(--disp);font-weight:800;font-stretch:92%;text-transform:uppercase;
-  font-size:clamp(.95rem,1.7vw,1.15rem);line-height:1.2}
-.m3d-cap i{font-style:normal;display:block;font-size:.88rem;color:var(--dim);margin-top:.4rem;max-width:34ch;line-height:1.55}
-.m3d-count{position:absolute;right:1.3rem;top:1.1rem;font-family:var(--mono);font-size:.62rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:right;pointer-events:none}
-.m3d-count b{display:block;font-family:var(--disp);font-size:1.6rem;color:var(--gold-lt);line-height:1;margin-bottom:.3rem}
-@media(max-width:600px){.m3d-cap i{display:none}}
-
 /* reviews */
 .reviews{display:none}
 body.reviews-on .reviews{display:block}
@@ -543,6 +521,8 @@ body.reviews-on .reviews{display:block}
 .scan-verdict b{font-size:.95rem;color:var(--gold)}
 .plan--elite .btn.hot{background:linear-gradient(180deg,var(--gold-lt),var(--gold));color:#14110A;border-color:transparent;
   box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 34px -16px rgba(201,162,75,.85)}
+.edu{margin:1.4rem auto 0;max-width:52ch;text-align:center;font-size:.84rem;color:var(--dimmer);line-height:1.6}
+.edu b{color:var(--dim);font-weight:600}
 .pay{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;justify-content:center;margin-top:3rem;
   font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer)}
 .buywrap{margin-top:auto;display:flex;justify-content:center}
@@ -570,20 +550,17 @@ body.reviews-on .reviews{display:block}
 .final{position:relative;overflow:hidden;text-align:center}
 .final::before{content:"";position:absolute;left:50%;top:-10%;width:1000px;height:600px;transform:translateX(-50%);
   background:radial-gradient(ellipse at center,rgba(201,162,75,.14),transparent 65%);pointer-events:none}
-.capture{margin:clamp(4rem,7vw,6rem) auto 0;max-width:760px;border:1px solid var(--hair);border-radius:var(--r);
-  padding:clamp(2rem,4vw,3.2rem);background:var(--surface);text-align:left}
-.capture .eyebrow{margin-bottom:1.1rem}
-.capture h3{margin-bottom:1.4rem;max-width:22ch}
-.cap-body{font-size:1rem;color:var(--dim);line-height:1.72;max-width:60ch}
-.cap-body p+p{margin-top:1rem}
-.cap-body strong{color:var(--bone);font-weight:600}
-.cap-list{list-style:none;margin:1.6rem 0;display:grid;gap:.55rem;
-  border-left:2px solid var(--hair-gold);padding-left:1.3rem}
-.cap-list li{font-size:.95rem;color:var(--dim);line-height:1.55}
-.cap-list li b{color:var(--bone);font-weight:600}
-.cap-get{font-family:var(--disp);font-weight:800;font-stretch:92%;text-transform:uppercase;
-  font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.3;color:var(--bone);margin:2rem 0 1.3rem}
-.capture form{display:flex;gap:.6rem;max-width:520px}
+.capture{margin:clamp(3.5rem,6vw,5rem) auto 0;max-width:600px;border:1px solid var(--hair);border-radius:var(--r);
+  padding:clamp(1.8rem,3.5vw,2.4rem);background:var(--surface);text-align:left}
+.capture .eyebrow{margin-bottom:1rem}
+.capture h3{margin-bottom:1rem}
+.capture p{font-size:.95rem;color:var(--dim);line-height:1.65;margin:0 0 1.5rem}
+.capture form{display:flex;gap:.6rem}
+.cap-done{display:none;border:1px solid var(--hair-gold);border-radius:var(--r);
+  padding:1.5rem;background:linear-gradient(160deg,rgba(201,162,75,.1),transparent 70%);animation:fade .5s var(--ease)}
+.cap-done.on{display:block}
+.cap-done p{font-size:.95rem;color:var(--dim);margin-bottom:1.2rem}
+.cap-done b{color:var(--bone)}
 @media(max-width:540px){.capture form{flex-direction:column}}
 .capture input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid var(--hair);color:var(--bone);
   padding:.95rem 1rem;font:inherit;font-size:16px;border-radius:var(--r);transition:border-color .25s}
@@ -718,7 +695,7 @@ body.reviews-on .reviews{display:block}
   <div class="shell strip-grid">
     <div><div class="stat-n">20+</div><div class="stat-l">Years in the market</div></div>
     <div><div class="stat-n">2007</div><div class="stat-l">Crash lived through</div></div>
-    <div><div class="stat-n">37</div><div class="stat-l">Lessons, all signal</div></div>
+    <div><div class="stat-n">37</div><div class="stat-l">Educational lessons</div></div>
     <div><div class="stat-n">10</div><div class="stat-l">Elite seats only!</div></div>
   </div>
 </div>
@@ -848,15 +825,6 @@ body.reviews-on .reviews{display:block}
       </article>
     </div>
 
-      <div class="m3d rv">
-        <canvas class="m3d-cv" aria-label="Interactive 3D view of the Athens Stock Exchange"></canvas>
-        <div class="m3d-cap"><b>The whole market, one screen.</b><i>Every tower is a listed company. Almost nobody is looking at them. The scan in Module 4 finds the few that matter.</i></div>
-        <div class="m3d-count"><b class="m3d-n">0</b>found by the scan</div>
-        <div class="m3d-top">
-          <span class="m3d-hint">Drag to rotate</span>
-          <span class="m3d-key"><span><b class="k-i"></b>ignored</span><span><b class="k-f"></b>shortlist</span></span>
-        </div>
-      </div>
   </div>
 </section>
 
@@ -1076,6 +1044,7 @@ body.reviews-on .reviews{display:block}
       </div>
     </div>
 
+    <p class="edu rv"><b>What you are buying is education, not advice.</b> Every tier gives you lessons, frameworks and market commentary. None of it is investment advice or a recommendation to buy or sell, and no result is promised.</p>
     <div class="pay rv"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple &amp; Google Pay</span></div>
     <a class="downlink rv open-oto" href="#">Don't want a membership? See the one-time access options →</a>
   </div>
@@ -1087,7 +1056,7 @@ body.reviews-on .reviews{display:block}
       <span class="eyebrow" style="justify-content:center">Read this before you join</span>
       <h2 class="h2">This is not a magic button.</h2>
     </div>
-    <p class="rv">You don't press three buttons and get lucky. This is work. Do it with a brain and a system behind you and you build something real. <strong>Something that stays yours for life.</strong></p>
+    <p class="rv">You don't press three buttons and get lucky. This is work. Do it with a brain and a system behind you and you build something real. <strong>Something that stays yours for life.</strong><br><br>I teach method, mechanics and reasoning. I will never tell you what to buy, and nothing here is investment advice. That is the point: you end up able to decide for yourself.</p>
   </div>
 </section>
 
@@ -1123,26 +1092,19 @@ body.reviews-on .reviews{display:block}
       <p class="note" style="text-align:center">No card required to start</p>
     </div>
     <div class="capture rv">
-      <span class="eyebrow">The seven checks</span>
-      <h3 class="h3">Most people buy their first stock on someone else's opinion.</h3>
-      <div class="cap-body">
-        <p>A name comes up at work. A friend swears by it. A headline says the sector is moving. The stock looks cheap next to where it was two years ago, so the order goes in.</p>
-        <p>Then the questions start, and every one of them arrives too late. How much of your account is now sitting in that one company. What has to happen for you to sell. Whether the dividend that attracted you is actually covered by earnings. What the fees quietly took. And when it drops eleven percent, you find out you never decided in advance whether that was noise or the reason to leave.</p>
-        <p>The loss is rarely the expensive part. <strong>The expensive part is doing the same thing again next year, because nothing about the process changed.</strong></p>
-        <ul class="cap-list">
-          <li><b>Seven questions</b>, in the order I ask them</li>
-          <li><b>The numbers to look up</b> for each one, and where they live</li>
-          <li><b>The answer that stops the trade</b> before the money moves</li>
-        </ul>
-        <p>It is the same page I use. If one check fails, I do not buy, no matter how good the story sounds. It has cost me a few good trades and saved me from considerably more bad ones.</p>
-      </div>
-      <p class="cap-get">One page, free.</p>
+      <span class="eyebrow">Free to read</span>
+      <h3 class="h3">Don't buy a stock yet.</h3>
+      <p>I wrote down why most Greeks lose money in the market. No stock picks, no tips. Just why the rest lose, what the one in ten does differently, and three things you can change tomorrow. Enter your email and it lands right away.</p>
       <form onsubmit="return false;">
         <input type="email" placeholder="your@email.com" aria-label="Email address" required>
-        <button class="btn btn--gold" type="submit">Send the checklist</button>
+        <button class="btn btn--gold" type="submit">Send it to me</button>
       </form>
       <p class="form-msg" role="status"></p>
-      <p class="note">One email with the page attached. Unsubscribe in one click, any time.</p>
+      <div class="cap-done">
+        <p class="cap-line"></p>
+        <a class="btn btn--gold cap-read" href="./letter.html" target="_blank" rel="noopener">Read it now →</a>
+      </div>
+      <p class="note">Educational material, not investment advice. One click to unsubscribe, any time.</p>
     </div>
   </div>
 </section>
@@ -1177,7 +1139,7 @@ body.reviews-on .reviews{display:block}
     <button class="ovl-close" aria-label="Close">Close ✕</button>
     <span class="eyebrow">One-time access</span>
     <h2 class="h2">Own it outright.</h2>
-    <p class="lede">One payment, lifetime access to the material. Both options are <strong>content only</strong>: no community, no live streams, no Ask Anesti. Want me in your corner? That's what Core is for.</p>
+    <p class="lede">One payment, lifetime access to the material. Both options are <strong>content only</strong>: no community, no live streams, no Ask Anesti. Want me in your corner? That's what Core is for.<br><br><span class="muted" style="font-size:.9rem">Educational material. Not investment advice.</span></p>
 
     <div class="otos">
       <div class="oto">
@@ -1268,7 +1230,7 @@ body.reviews-on .reviews{display:block}
   <div class="shell strip-grid">
     <div><div class="stat-n">20+</div><div class="stat-l">Χρόνια στην αγορά</div></div>
     <div><div class="stat-n">2007</div><div class="stat-l">Το κραχ, το έζησα</div></div>
-    <div><div class="stat-n">37</div><div class="stat-l">Μαθήματα, όλα ουσία</div></div>
+    <div><div class="stat-n">37</div><div class="stat-l">Εκπαιδευτικά μαθήματα</div></div>
     <div><div class="stat-n">10</div><div class="stat-l">Θέσεις Elite μόνο!</div></div>
   </div>
 </div>
@@ -1398,15 +1360,6 @@ body.reviews-on .reviews{display:block}
       </article>
     </div>
 
-      <div class="m3d rv">
-        <canvas class="m3d-cv" aria-label="Διαδραστική τρισδιάστατη όψη του Χρηματιστηρίου Αθηνών"></canvas>
-        <div class="m3d-cap"><b>Όλη η αγορά, σε μία οθόνη.</b><i>Κάθε πύργος είναι μια εισηγμένη εταιρεία. Σχεδόν κανείς δεν τις κοιτάει. Το σκανάρισμα της Ενότητας 4 βρίσκει τις λίγες που μετράνε.</i></div>
-        <div class="m3d-count"><b class="m3d-n">0</b>βρέθηκαν</div>
-        <div class="m3d-top">
-          <span class="m3d-hint">Σύρε για περιστροφή</span>
-          <span class="m3d-key"><span><b class="k-i"></b>αγνοημένες</span><span><b class="k-f"></b>λίστα</span></span>
-        </div>
-      </div>
   </div>
 </section>
 
@@ -1626,6 +1579,7 @@ body.reviews-on .reviews{display:block}
       </div>
     </div>
 
+    <p class="edu rv"><b>Αυτό που αγοράζεις είναι εκπαίδευση, όχι συμβουλή.</b> Κάθε πακέτο σού δίνει μαθήματα, πλαίσια και σχολιασμό της αγοράς. Τίποτα από αυτά δεν αποτελεί επενδυτική συμβουλή ή σύσταση αγοράς και πώλησης, και κανένα αποτέλεσμα δεν υπόσχεται.</p>
     <div class="pay rv"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple &amp; Google Pay</span></div>
     <a class="downlink rv open-oto" href="#">Δεν θες συνδρομή; Δες τις εφάπαξ επιλογές →</a>
   </div>
@@ -1637,7 +1591,7 @@ body.reviews-on .reviews{display:block}
       <span class="eyebrow" style="justify-content:center">Διάβασέ το πριν μπεις</span>
       <h2 class="h2">Δεν είναι μαγικό κουμπί.</h2>
     </div>
-    <p class="rv">Δεν πατάς τρία κουμπιά και ανοίγει η τύχη σου. Αυτό είναι δουλειά. Κάν' τη με μυαλό και με σύστημα, και χτίζεις κάτι αληθινό. <strong>Κάτι που μένει δικό σου για πάντα.</strong></p>
+    <p class="rv">Δεν πατάς τρία κουμπιά και ανοίγει η τύχη σου. Αυτό είναι δουλειά. Κάν' τη με μυαλό και με σύστημα, και χτίζεις κάτι αληθινό. <strong>Κάτι που μένει δικό σου για πάντα.</strong><br><br>Διδάσκω μέθοδο, μηχανισμούς και σκεπτικό. Δεν πρόκειται να σου πω ποτέ τι να αγοράσεις, και τίποτα εδώ δεν είναι επενδυτική συμβουλή. Αυτό ακριβώς είναι το νόημα: να μπορείς να αποφασίζεις μόνος σου.</p>
   </div>
 </section>
 
@@ -1673,26 +1627,19 @@ body.reviews-on .reviews{display:block}
       <p class="note" style="text-align:center">Δεν χρειάζεται κάρτα για να ξεκινήσεις</p>
     </div>
     <div class="capture rv">
-      <span class="eyebrow">Οι εφτά έλεγχοι</span>
-      <h3 class="h3">Οι περισσότεροι αγοράζουν την πρώτη τους μετοχή με ξένη γνώμη.</h3>
-      <div class="cap-body">
-        <p>Ακούγεται ένα όνομα στη δουλειά. Ένας φίλος ορκίζεται γι' αυτό. Ένα πρωτοσέλιδο λέει ότι ο κλάδος κινείται. Η μετοχή φαίνεται φθηνή μπροστά στο πού ήταν πριν δύο χρόνια, και η εντολή περνάει.</p>
-        <p>Μετά αρχίζουν οι ερωτήσεις, και όλες έρχονται αργά. Πόσο από τον λογαριασμό σου κάθεται τώρα σε μία εταιρεία. Τι πρέπει να συμβεί για να πουλήσεις. Αν το μέρισμα που σε τράβηξε καλύπτεται όντως από κέρδη. Τι σου πήραν αθόρυβα οι προμήθειες. Και όταν πέσει έντεκα τοις εκατό, ανακαλύπτεις ότι δεν είχες αποφασίσει από πριν αν αυτό είναι θόρυβος ή λόγος να φύγεις.</p>
-        <p>Η ζημιά σπάνια είναι το ακριβό κομμάτι. <strong>Το ακριβό κομμάτι είναι να το ξανακάνεις του χρόνου, επειδή τίποτα στη διαδικασία δεν άλλαξε.</strong></p>
-        <ul class="cap-list">
-          <li><b>Εφτά ερωτήσεις</b>, με τη σειρά που τις κάνω</li>
-          <li><b>Τα νούμερα που κοιτάς</b> σε κάθε μία, και πού βρίσκονται</li>
-          <li><b>Η απάντηση που ακυρώνει την αγορά</b> πριν κουνηθεί το χρήμα</li>
-        </ul>
-        <p>Είναι η ίδια σελίδα που χρησιμοποιώ. Αν ένας έλεγχος πέσει έξω, δεν αγοράζω, όσο καλή κι αν ακούγεται η ιστορία. Μου έχει κοστίσει μερικές καλές κινήσεις και μου έχει γλιτώσει αρκετά περισσότερες κακές.</p>
-      </div>
-      <p class="cap-get">Μία σελίδα, δωρεάν.</p>
+      <span class="eyebrow">Δωρεάν κείμενο</span>
+      <h3 class="h3">Μην αγοράσεις μετοχή ακόμα.</h3>
+      <p>Έγραψα ένα κείμενο για το γιατί οι περισσότεροι Έλληνες χάνουν στο χρηματιστήριο. Χωρίς μετοχές, χωρίς tips. Μόνο ο λόγος που χάνουν οι υπόλοιποι, τι κάνει διαφορετικά ο ένας στους δέκα, και τρία πράγματα που μπορείς να αλλάξεις από αύριο. Βάλε το email σου και φτάνει αμέσως.</p>
       <form onsubmit="return false;">
         <input type="email" placeholder="το email σου" aria-label="Διεύθυνση email" required>
-        <button class="btn btn--gold" type="submit">Στείλε μου τη λίστα</button>
+        <button class="btn btn--gold" type="submit">Στείλ' το μου</button>
       </form>
       <p class="form-msg" role="status"></p>
-      <p class="note">Ένα email με τη σελίδα. Διαγραφή με ένα κλικ, όποτε θες.</p>
+      <div class="cap-done">
+        <p class="cap-line"></p>
+        <a class="btn btn--gold cap-read" href="./letter.html" target="_blank" rel="noopener">Διάβασέ το τώρα →</a>
+      </div>
+      <p class="note">Εκπαιδευτικό υλικό, όχι επενδυτική συμβουλή. Διαγραφή με ένα κλικ, όποτε θες.</p>
     </div>
   </div>
 </section>
@@ -1727,7 +1674,7 @@ body.reviews-on .reviews{display:block}
     <button class="ovl-close" aria-label="Κλείσιμο">Κλείσιμο ✕</button>
     <span class="eyebrow">Εφάπαξ πρόσβαση</span>
     <h2 class="h2">Κάν' το δικό σου μια για πάντα.</h2>
-    <p class="lede">Μία πληρωμή, πρόσβαση για μια ζωή στο υλικό. Και οι δύο επιλογές είναι <strong>μόνο περιεχόμενο</strong>: χωρίς κοινότητα, χωρίς live, χωρίς Ask Anesti. Θέλεις εμένα στη γωνία σου; Γι' αυτό υπάρχει το Core.</p>
+    <p class="lede">Μία πληρωμή, πρόσβαση για μια ζωή στο υλικό. Και οι δύο επιλογές είναι <strong>μόνο περιεχόμενο</strong>: χωρίς κοινότητα, χωρίς live, χωρίς Ask Anesti. Θέλεις εμένα στη γωνία σου; Γι' αυτό υπάρχει το Core.<br><br><span class="muted" style="font-size:.9rem">Εκπαιδευτικό υλικό. Όχι επενδυτική συμβουλή.</span></p>
 
     <div class="otos">
       <div class="oto">
@@ -1825,27 +1772,34 @@ body.reviews-on .reviews{display:block}
   /* email checklist form */
   var FORM_STR={
     en:{bad:'Enter a valid email address',sending:'Sending…',
-        ok:'Done. Check your inbox, and your spam folder just in case.',
-        fail:'Something went wrong. Email me at ',
-        nocfg:'Form not connected yet. Email me at '},
+        sent:'<b>Sent.</b> It is in your inbox, spam folder included if it hides. You can read it here too.',
+        ready:'<b>Here it is.</b> Open it now, or come back to this page any time.',
+        fail:'Something went wrong. Email me at '},
     el:{bad:'Βάλε ένα σωστό email',sending:'Αποστολή…',
-        ok:'Έγινε. Τσέκαρε τα εισερχόμενα, και τα ανεπιθύμητα για καλό και για κακό.',
-        fail:'Κάτι πήγε στραβά. Στείλε μου email στο ',
-        nocfg:'Η φόρμα δεν έχει συνδεθεί ακόμα. Στείλε μου email στο '}
+        sent:'<b>Στάλθηκε.</b> Είναι στα εισερχόμενά σου, τσέκαρε και τα ανεπιθύμητα αν κρύφτηκε. Μπορείς να το διαβάσεις και εδώ.',
+        ready:'<b>Ορίστε.</b> Άνοιξέ το τώρα, ή γύρνα σε αυτή τη σελίδα όποτε θες.',
+        fail:'Κάτι πήγε στραβά. Στείλε μου email στο '}
   };
   function initForm(scope,lang){
     var f=scope.querySelector('.capture form');if(!f)return;
     var inp=f.querySelector('input'),btn=f.querySelector('button'),
         msg=scope.querySelector('.form-msg'),T=FORM_STR[lang],ep=(window.SMTM&&SMTM.formEndpoint)||'';
+    var done=scope.querySelector('.cap-done'),line=scope.querySelector('.cap-line');
+    function deliver(wasSent){
+      msg.textContent='';f.style.display='none';
+      if(line)line.innerHTML=wasSent?T.sent:T.ready;
+      if(done)done.classList.add('on');
+    }
     f.addEventListener('submit',function(e){
       e.preventDefault();msg.classList.remove('err');
       var v=(inp.value||'').trim();
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){msg.textContent=T.bad;msg.classList.add('err');return}
-      if(!ep){msg.innerHTML=T.nocfg+'<a href="mailto:'+mail+'" style="color:var(--gold)">'+mail+'</a>';msg.classList.add('err');return}
+      /* no endpoint configured yet: still hand over the document, never claim it was emailed */
+      if(!ep){console.warn('[SMTM] formEndpoint is empty, the email was not captured. Set it in the config block.');deliver(false);return}
       btn.disabled=true;msg.textContent=T.sending;
       fetch(ep,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({email:v,lang:lang,source:'checklist'})})
-      .then(function(r){if(!r.ok)throw 0;msg.textContent=T.ok;inp.value='';})
+        body:JSON.stringify({email:v,lang:lang,source:'letter'})})
+      .then(function(r){if(!r.ok)throw 0;deliver(true)})
       .catch(function(){msg.innerHTML=T.fail+'<a href="mailto:'+mail+'" style="color:var(--gold)">'+mail+'</a>';msg.classList.add('err')})
       .then(function(){btn.disabled=false});
     });
@@ -2004,127 +1958,6 @@ body.reviews-on .reviews{display:block}
         b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');up()})});
     }
 
-
-    /* ---- 3D market field: raw canvas, real projection, lit faces ---- */
-    (function(){
-      var wrap=scope.querySelector('.m3d');if(!wrap)return;
-      var cv=wrap.querySelector('.m3d-cv'),ctx=cv.getContext('2d'),nEl=wrap.querySelector('.m3d-n');
-      var N=9, GAP=1.0, MAXH=2.3, bars=[], seed=20250816;
-      var rnd=function(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296};
-      for(var ix=0;ix<N;ix++)for(var iz=0;iz<N;iz++){
-        var d=Math.hypot(ix-(N-1)/2,iz-(N-1)/2);
-        bars.push({x:(ix-(N-1)/2)*GAP,z:(iz-(N-1)/2)*GAP,
-          h:.3+Math.pow(rnd(),1.8)*MAXH*(1-d/(N*1.25)),found:false,lit:0});
-      }
-      bars.slice().sort(function(a,b){return b.h-a.h}).slice(0,6).forEach(function(b){b.found=true});
-      var FOUND=6;
-
-      var rotY=-0.68,rotX=0.72,drag=false,px=0,vel=0.0013,W=0,H=0,t0=0,running=false;
-      /* light direction in world space, normalised on the xz plane */
-      var LX=-0.72, LZ=0.69;
-
-      function size(){
-        var w=cv.clientWidth|0, hh=cv.clientHeight|0;
-        if(!w||!hh)return false;
-        var dpr=Math.min(devicePixelRatio||1,2);
-        if(cv.width!==w*dpr||cv.height!==hh*dpr){cv.width=w*dpr;cv.height=hh*dpr}
-        ctx.setTransform(dpr,0,0,dpr,0,0);W=w;H=hh;return true;
-      }
-      function proj(x,y,z){
-        var ca=Math.cos(rotY),sa=Math.sin(rotY);
-        var X=x*ca-z*sa, Z=x*sa+z*ca;
-        var cb=Math.cos(rotX),sb=Math.sin(rotX);
-        var Y=y*cb-Z*sb, Z2=y*sb+Z*cb;
-        var f=18, s=f/(f+Z2+8.2);
-        var half=((N-1)/2*GAP+GAP*.6)*Math.SQRT2;
-        var k=Math.min(W/(half*2*0.60), H/(half*0.88));
-        return {x:W/2+X*s*k, y:H*0.60-Y*s*k, d:Z2};
-      }
-      function poly(pts,fill){
-        ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);
-        for(var i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);
-        ctx.closePath();ctx.fillStyle=fill;ctx.fill();
-      }
-      function shade(rgb,m){
-        return 'rgb('+Math.round(rgb[0]*m)+','+Math.round(rgb[1]*m)+','+Math.round(rgb[2]*m)+')';
-      }
-      var GREY=[52,65,88], GOLD=[201,162,75];
-
-      function frame(ts){
-        if(!t0)t0=ts;
-        /* skip entirely while this language version is hidden */
-        if(wrap.offsetParent===null){requestAnimationFrame(frame);return}
-        if(!size()){requestAnimationFrame(frame);return}
-        var el=(ts-t0)/1000;
-        if(!drag)rotY+=vel;
-        ctx.clearRect(0,0,W,H);
-
-        var span=(N-1)/2*GAP+GAP*.7;
-        ctx.lineWidth=1;ctx.strokeStyle='rgba(255,255,255,.04)';
-        for(var g=-Math.floor(N/2);g<=Math.floor(N/2);g++){
-          var a=proj(g*GAP,0,-span),b2=proj(g*GAP,0,span);
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b2.x,b2.y);ctx.stroke();
-          var c2=proj(-span,0,g*GAP),d2=proj(span,0,g*GAP);
-          ctx.beginPath();ctx.moveTo(c2.x,c2.y);ctx.lineTo(d2.x,d2.y);ctx.stroke();
-        }
-
-        var w=GAP*0.30, order=bars.slice();
-        order.forEach(function(b){b._d=proj(b.x,0,b.z).d});
-        order.sort(function(a,b){return b._d-a._d});
-
-        var shown=0;
-        order.forEach(function(b,i){
-          var ap=Math.min(1,Math.max(0,(el-0.2-i*0.011)*2.4));
-          ap=1-Math.pow(1-ap,3);
-          var hh=b.h*ap; if(hh<=0.015)return;
-          if(b.found&&ap>0.98)shown++;
-
-          var base=b.found?GOLD:GREY;
-          var c=[[-w,-w],[w,-w],[w,w],[-w,w]].map(function(o){return proj(b.x+o[0],0,b.z+o[1])});
-          var t=[[-w,-w],[w,-w],[w,w],[-w,w]].map(function(o){return proj(b.x+o[0],hh,b.z+o[1])});
-          /* world normals of the four side faces, in the same order as the edges below */
-          var NRM=[[0,-1],[1,0],[0,1],[-1,0]];
-          [[0,1],[1,2],[2,3],[3,0]].forEach(function(f,k){
-            var q=[c[f[0]],c[f[1]],t[f[1]],t[f[0]]];
-            var ar=0;for(var j=0;j<4;j++){var m=q[j],n2=q[(j+1)%4];ar+=(m.x*n2.y-n2.x*m.y)}
-            if(ar<=0)return;                        /* facing away from camera */
-            var n=NRM[k], lum=0.34+0.66*Math.max(0,n[0]*LX+n[1]*LZ);
-            poly(q,shade(base,0.42+lum*0.58));
-          });
-          if(b.found){ctx.save();ctx.shadowColor='rgba(201,162,75,.55)';ctx.shadowBlur=22}
-          poly(t,shade(base,b.found?1.3:1.22));     /* top face catches the most light */
-          if(b.found)ctx.restore();
-        });
-
-        if(nEl)nEl.textContent=String(Math.min(FOUND,shown));
-        requestAnimationFrame(frame);
-      }
-
-      function onDown(e){drag=true;px=(e.touches?e.touches[0].clientX:e.clientX)}
-      function onMove(e){
-        if(!drag)return;
-        var x=(e.touches?e.touches[0].clientX:e.clientX);
-        rotY+=(x-px)*0.008;px=x;
-        if(e.touches&&e.cancelable)e.preventDefault();
-      }
-      function onUp(){drag=false}
-      cv.addEventListener('mousedown',onDown);
-      cv.addEventListener('touchstart',onDown,{passive:true});
-      cv.addEventListener('touchmove',onMove,{passive:false});
-      addEventListener('mousemove',onMove);addEventListener('mouseup',onUp);addEventListener('touchend',onUp);
-      if(window.ResizeObserver)new ResizeObserver(function(){size()}).observe(cv);
-      addEventListener('resize',size);
-
-      /* start once, as soon as the element has a real size, whichever language is active */
-      function boot(){
-        if(running)return;
-        if(cv.clientWidth&&cv.clientHeight){running=true;t0=0;size();requestAnimationFrame(frame)}
-      }
-      boot();
-      if(!running){
-        var tries=0,iv=setInterval(function(){boot();if(running||++tries>200)clearInterval(iv)},120);
-      }
-    })();
 
     /* elite seat scanner */
     var seatBtn=scope.querySelector('.check-seats'),box=scope.querySelector('.seats-box');
